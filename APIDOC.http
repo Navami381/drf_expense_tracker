@@ -1,0 +1,17 @@
+###api call for authentication endpoints
+#api call for creating user account
+###
+POST http://127.0.0.1:8000/v1/spending/register/
+Content-Type: application/json
+
+{
+    "username":"react",
+    "email":"react12@gmail.com",
+    "password":"react123"
+}
+
+#api call gets the details of the currently logged-in user.
+###
+GET http://127.0.0.1:8000/v1/spending/me/
+Accept: application/json
+Authorization: Basic django:django
