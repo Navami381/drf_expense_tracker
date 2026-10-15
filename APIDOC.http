@@ -10,8 +10,83 @@ Content-Type: application/json
     "password":"react123"
 }
 
+#api call for getting token
+###
+POST http://127.0.0.1:8000/v1/spending/token/
+Content-Type: application/json
+
+{
+    "username":"django",
+    "password":"django123"
+    
+}
+
+
+
 #api call gets the details of the currently logged-in user.
 ###
 GET http://127.0.0.1:8000/v1/spending/me/
 Accept: application/json
-Authorization: Basic django:django
+#Authorization: Basic django:django123
+Authorization: Token f6e7bdad6ec891b0fcae2c849212d2fc4c4dfabd
+
+
+
+#============expense api calls====================================
+#api call for listing expenses
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/
+Accept: application/json
+Authorization: Token f6e7bdad6ec891b0fcae2c849212d2fc4c4dfabd
+
+#api call for adding expenses
+###
+POST http://127.0.0.1:8000/v1/spending/expenses/
+Content-Type: application/json
+Authorization: Token f6e7bdad6ec891b0fcae2c849212d2fc4c4dfabd
+
+ {
+        "title": "honey chilly alfahm mandhi",
+        "amount": 580,
+        "category": "FOOD",
+        "priority": "want"
+    }
+
+
+#api call for retieving expenses
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/2/
+Accept: application/json
+Authorization: Token f6e7bdad6ec891b0fcae2c849212d2fc4c4dfabd
+
+#api call for updating expenses
+###
+PUT  http://127.0.0.1:8000/v1/spending/expenses/2/
+Content-Type: application/json
+Authorization: Token f6e7bdad6ec891b0fcae2c849212d2fc4c4dfabd
+
+ {
+        "title": "groceries",
+        "amount": 1200,
+        "category": "FOOD",
+        "priority": "need"
+    }
+
+#api call for deleting expense
+###
+DELETE http://127.0.0.1:8000/v1/spending/expenses/2/
+Accept: application/json
+Authorization: Token f6e7bdad6ec891b0fcae2c849212d2fc4c4dfabd
+
+#===============summary===============================================
+#api call for summary
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/summary/
+Accept: application/json
+Authorization: Token f6e7bdad6ec891b0fcae2c849212d2fc4c4dfabd
+
+#api call for for monthly budgetplan total and category summary
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/budgetplan/
+Accept: application/json
+Authorization: Token f6e7bdad6ec891b0fcae2c849212d2fc4c4dfabd
